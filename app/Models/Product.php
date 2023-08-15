@@ -9,5 +9,9 @@ class Product extends Model
 {
     // protected $table="my_products";
     use HasFactory;
+    protected $primaryKey='product_id';
+    // protected $fillable=['product_name','product_price'];
+    protected $guarded=[];
+    public $timestamps=false;
 
 }
