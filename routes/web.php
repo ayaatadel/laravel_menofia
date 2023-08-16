@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::get('/', function () {
 //     return view('hello',['user_name'=>$name]);
 // });
 
-
+//////////////////////////////////////     Product controller   /////////////////////
 Route::get('/product',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/show/{id}',[ProductController::class,'show'])->name('product.show');
 Route::delete('/product/delete/{id}',[ProductController::class,'destroy'])->name('product.delete');
@@ -33,3 +34,7 @@ Route::get('/product/update/{id}',[ProductController::class,'update'])->name('pr
 Route::put('/product/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
 Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
 Route::post('/product/store',[ProductController::class,'store'])->name('product.store');
+
+//////////////////////////////    Category Controller          ///////////////////////////////
+
+Route::resource('category',CategoryController::class);

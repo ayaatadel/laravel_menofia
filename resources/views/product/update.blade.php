@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('product.edit',$product->product_id)}}" method="POST">
+    <form action="{{route('product.edit',$product->id)}}" method="POST">
         @csrf
         @method('PUT')
         <input type="text" name="product_name" value="{{$product->product_name}}">

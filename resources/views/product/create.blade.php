@@ -11,11 +11,35 @@
         @csrf
 
         <input type="text" name="product_name" placeholder="Product name">
-        <input type="text" name="product_price" placeholder="product price">
+
+        @error('product_name')
+          <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
+
+         <input type="text" name="product_price" placeholder="product price">
+
+         @error('product_price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
         <input type="text" name="product_availability"placeholder="product availability">
+
+        @error('product_availability')
+          <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
         <input type="text" name="category_id"placeholder="category id">
-        <input type="text" name="admin_id"placeholder="admin id">
-        <input type="submit" >
+
+        @error('category_id')
+          <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
+
+         <input type="text" name="admin_id"placeholder="admin id">
+
+        @error('admin_id')
+          <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
+
+         <input type="submit" >
 
     </form>
 </body>

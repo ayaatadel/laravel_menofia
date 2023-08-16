@@ -32,7 +32,7 @@ class ProductController extends Controller
     {
         //   $product=product::find($id);
         //   $product->delete();
-        Product::where('product_id',$id)->delete();
+        Product::where('id',$id)->delete();
           return redirect()->route('product.index');
     }
     function update($id)
@@ -58,6 +58,14 @@ class ProductController extends Controller
 
     function store(Request $request)
     {
+        $validated=$request->validate([
+            'product_name'=>'required',
+            'product_price'=>'required',
+            'product_availability'=>'required',
+            'categry_id'=>'required',
+            'admin_id'=>'required',
+
+        ]);
         product::create($request->all());
         return redirect()->route('product.index');
     }
